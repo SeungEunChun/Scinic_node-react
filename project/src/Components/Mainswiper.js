@@ -14,15 +14,15 @@ const Mains = () => {
 
     const swipeapi = async () => {
         try {
-            // 쿠키에서 슬라이드 데이터를 먼저 시도하여 가져옵니다.
+
             const savedData = Cookies.get('swipeData');
             if (savedData) {
-                setswipe(JSON.parse(savedData)); // 쿠키에 저장된 데이터가 있으면 상태에 설정
+                setswipe(JSON.parse(savedData));
             } else {
-                // 쿠키에 데이터가 없으면 API 호출
+
                 const result = await axios.get('/store/Mbanner');
                 setswipe([...result.data]);
-                // 새로운 데이터를 쿠키에 저장
+
                 Cookies.set('swipeData', JSON.stringify(result.data), { expires: 7, path: '/' });
             }
         } catch (error) {

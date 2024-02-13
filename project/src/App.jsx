@@ -43,8 +43,8 @@ function App() {
       } else {
         await dbstore("store", "Scinic_Product");
         await category_no();
-        Cookies.set('totalpro', JSON.stringify(totalpro), { expires: 10 })
-        Cookies.set('catepro', JSON.stringify(catepro), { expires: 10 })
+        Cookies.set('totalpro', JSON.stringify(totalpro), { expires: 7, path: "/" })
+        Cookies.set('catepro', JSON.stringify(catepro), { expires: 7, path: "/" })
       }
 
     }
@@ -60,7 +60,7 @@ function App() {
               param: "아무거나"
             }
           });
-          settotal([...result.data])
+          setcate([...result.data])
         } else {
           const result = await axios.get(`/${r}/${t}`, {
             headers: {
@@ -102,7 +102,7 @@ function App() {
     };
     dbstore("store", "Scinic_Product");
     category_no();
-    console.log();
+
   }, []);
 
 
