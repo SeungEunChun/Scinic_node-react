@@ -9,12 +9,12 @@ function Brandstory() {
             </div>
             <div className='text-start'>
                 <div>
-                    <img src="./assets/brandimg/brand1.jpg" alt="브랜드1" className='img-fluid' />
+                    <img src="https://i.ibb.co/W5k3n4v/brand1.jpg" alt="브랜드1" className='img-fluid' />
                 </div>
 
                 <div className='d-lg-flex'>
                     <div>
-                        <img src="./assets/brandimg/brand2.jpg" alt="브랜드2" className='img-fluid'
+                        <img src="https://i.ibb.co/HTTD2t4/brand2.jpg" alt="브랜드2" className='img-fluid'
                         />
                     </div>
 
@@ -34,7 +34,7 @@ function Brandstory() {
             </div>
             <div className='text-end d-lg-flex flex-row-reverse'>
                 <div>
-                    <img src="./assets/brandimg/brand3.jpg" alt="브랜드3" className='img-fluid'
+                    <img src="https://i.ibb.co/g3hsc6B/brand3.jpg" alt="브랜드3" className='img-fluid'
                     />
                 </div>
 
@@ -51,7 +51,7 @@ function Brandstory() {
                 </div>
             </div>
             <div className="text-center">
-                <div><img src="./assets/brandimg/brand4.jpg" alt="브랜드4" className='img-fluid' /></div>
+                <div><img src="https://i.ibb.co/zVgMbkT/brand4.jpg" alt="브랜드4" className='img-fluid' /></div>
 
                 <div mtext>
                     <p>
@@ -71,7 +71,7 @@ function Brandstory() {
                 <h1>&ldquo; <br />
                     <strong>모두 싸이닉으로 가장 나 다운 내가 되세요</strong></h1>
                 <div>
-                    <img src="./assets/brandimg/brand5.jpg" alt="브랜드5" className='mt-3 img-fluid' />
+                    <img src="https://i.ibb.co/f1QryL5/brand5.jpg" alt="브랜드5" className='mt-3 img-fluid' />
                 </div>
 
 
