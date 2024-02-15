@@ -18,9 +18,9 @@ import Footer from "./Components/Footer";
 import Login from "./Link/Login";
 import Brandstory from "./Link/brandstory";
 import Store from './Link/Store';
-// data
-import Mainswipe from './data/Mainswiper.json';
-// import Products from './data/product.json'
+
+
+
 import review from './data/review.json'
 import award from "./data/award.json"
 import Cookies from 'js-cookie';
@@ -111,7 +111,7 @@ function App() {
       <Header datasrc={catepro && catepro}></Header>
       <Routes>
         <Route path="/" element={<section className='mainsec'>
-          <Mainswiper datasrc={Mainswipe.mainbanner}></Mainswiper>
+          <Mainswiper></Mainswiper>
           <Sproduct datasrc={totalpro && totalpro}></Sproduct>
 
           <div className="mb-5">
