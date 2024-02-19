@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useEffect, useState } from 'react';
+import * as React from "react";
+import { useEffect, useState } from 'react'
 import { Routes, Route } from "react-router-dom";
 import axios from 'axios';
 import Header from "./Components/Header";
@@ -28,50 +28,65 @@ import award from "./data/award.json"
 
 
 
+
+
 function App() {
+
   const [totalpro, settotal] = useState({});
 
 
+
   useEffect(() => {
-    const dbstore = async (r, data = null) => {
+
+    const dbstore = async (r, data = null ) => {
+      // data : 폼양식
+      // r : /route/gallery/cate/1/m param형식으로 gallery게시판 스킨 1번 게시글을 수정하겠다.   
+      
       const rarry = r.split('/');
-      const tn = rarry[1]; //게시판 이름
+      const tn = rarry[1]; // 게시판이름
+      // const cata = rarry[1] ? rarry[1] : null; // 카테고리
+      // const pk = rarry[2] ? rarry[2] : null; // pk유무에 따라 선택
+      // const edit = rarry[3] ? rarry[3] : null; //글쓰기, 글 수정 모두 선택
+      
       try {
-        if (data) {
-          const result = await axios.post(`/${r}`, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            },
-            params: data
-          });
-          settotal(prevState => ({
-            ...prevState,
-            [tn]: [...result.data]
-          }))
-        } else {
-          const result = await axios.get(`/${r}`);
-          settotal(prevState => ({
-            ...prevState,
-            [tn]: [...result.data]
-          }))
-        }
-      } catch (err) {
-        console.log(err);
+        if(data){
+            //post 글쓰기 글수정
+            const result = await axios.post(`/${r}`, {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+              params: data
+            }); 
+            settotal(prevState => ({
+              ...prevState,
+              [tn]: [...result.data]
+            }))          
+
+         }else{
+          //get 글목록 글보기 글삭제 
+            const result = await axios.get(`/${r}`); 
+            settotal(prevState => ({
+              ...prevState,
+              [tn]: [...result.data]
+            }))        
+
+          }
+          
+      } catch (error) {
+        console.log(error);
       }
     };
 
-    dbstore('store/Scinic_Product');
-    dbstore('store/Category');
-
+    
+    dbstore("store/Scinic_Product");
+    dbstore("store/Category");
 
   }, []);
 
-  useEffect(() => {
-    console.log(totalpro); //for dev
+  useEffect(()=>{
+    console.log(totalpro)
+
   }, [totalpro])
-
-
-
 
 
   return (
