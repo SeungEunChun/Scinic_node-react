@@ -1,5 +1,6 @@
 $mainfont : 'Noto Sans KR Variable',
 sans-serif !important;
+$maincolor: #4ed3d7;
 
 body {
     overflow-x: hidden !important;
@@ -67,7 +68,7 @@ p {
 
                 &:hover:not(#storelist a) {
                     transition: 0.3s;
-                    color: #4ed3d7;
+                    color: $maincolor;
                 }
             }
 
@@ -631,7 +632,7 @@ p {
     }
 
     a:hover {
-        color: #4ed3d7 !important;
+        color: $maincolor !important;
     }
 
 
