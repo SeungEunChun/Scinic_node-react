@@ -68,87 +68,89 @@ function Form() {
     }
 
     return (
+        <div className='text-center'>
+            <form className='myForm' onSubmit={(e) => { buttonClick(e) }} style={{ marginTop: "20%" }}>
+                <div className='mb-4'>
+                    <h5 className=''>싸이닉 제품 체험단을 모집합니다!</h5>
+                    <div>
+                        <div className='mb-4'>
+                            <label className='' htmlFor="username">이름</label><br />
+                            <input
+                                type="text"
+                                name='u_name'
+                                id='username'
+                                className='formtag'
+                                placeholder='홍길동'
+                                value={formData.u_name}
+                                onChange={handleChange}
+                            />
 
-        <form className='myForm' onSubmit={(e) => { buttonClick(e) }} style={{ marginTop: "300px", width: "800px" }}>
-            <div className='myFormDiv w-md-3'>
-                <h5 className='text-center mb-5'>싸이닉 제품 체험단을 모집합니다!</h5>
-                <div>
-                    <div className='mb-4'>
-                        <label className='d-block mb-2' htmlFor="username">이름</label>
-                        <input
-                            type="text"
-                            name='u_name'
-                            id='username'
-                            className='w-100'
-                            placeholder='홍길동'
-                            value={formData.u_name}
-                            onChange={handleChange}
-                        />
+                        </div>
+                        <div className='mb-4'>
+                            <label className='' htmlFor="userphone">휴대전화번호</label><br />
+                            <input
+                                type="number"
+                                name='u_phone'
+                                id='userphone'
+                                className='formtag'
+                                placeholder='01012346789'
+                                value={formData.u_phone}
+                                onChange={handleChange}
 
+
+                            />
+
+                        </div>
+                        <div className='mb-4'>
+                            <label className='' htmlFor="useremail">이메일</label><br />
+                            <input
+                                type="text"
+                                name='u_email'
+                                id='useremail'
+                                className='formtag'
+                                placeholder='aaa@naver.com'
+
+                                value={formData.u_email}
+                                onChange={handleChange}
+                            />
+
+                        </div>
                     </div>
-                    <div className='mb-4'>
-                        <label className='d-block mb-2' htmlFor="userphone">휴대전화번호</label>
-                        <input
-                            type="number"
-                            name='u_phone'
-                            id='userphone'
-                            className='w-100'
-                            placeholder='01012346789'
-                            value={formData.u_phone}
-                            onChange={handleChange}
 
-
-                        />
-
+                    <div className=''>
+                        <div className='mb-4'>
+                            <input
+                                type="checkbox"
+                                name="information"
+                                id="information"
+                            // checked={Essential}
+                            // onClick={() => {
+                            //     setEssential(!Essential)
+                            // }}
+                            />
+                            <label htmlFor="information">개인정보수집동의</label>
+                        </div>
+                        <div className='mb-4'>
+                            <input
+                                type="checkbox"
+                                name="marketing"
+                                id="marketing"
+                                value={formData.marketing}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="marketing">마케팅수신정보동의 </label>
+                            <span className='choice'>(선택)</span>
+                        </div>
                     </div>
-                    <div className='mb-4'>
-                        <label className='d-block mb-2' htmlFor="useremail">이메일</label>
-                        <input
-                            type="text"
-                            name='u_email'
-                            id='useremail'
-                            className='w-100'
-                            placeholder='aaa@naver.com'
 
-                            value={formData.u_email}
-                            onChange={handleChange}
-                        />
-
-                    </div>
+                    <button
+                        className='btn-4'
+                        type="submit"
+                    >
+                        <span>신청하기</span></button>
                 </div>
-
-                <div className='d-flex justify-content-left align-items-center'>
-                    <div className='d-flex justify-content-left align-items-center' style={{ marginRight: "20px" }}>
-                        <input
-                            type="checkbox"
-                            name="information"
-                            id="information"
-                        // checked={Essential}
-                        // onClick={() => {
-                        //     setEssential(!Essential)
-                        // }}
-                        />
-                        <label htmlFor="information">개인정보수집동의</label>
-                    </div>
-                    <div className='d-flex justify-content-left align-items-center'>
-                        <input
-                            type="checkbox"
-                            name="marketing"
-                            id="marketing"
-                            value={formData.marketing}
-                            onChange={handleChange}
-                        />
-                        <label htmlFor="marketing">마케팅수신정보동의 </label>
-                        <span className='choice'>(선택)</span>
-                    </div>
-                </div>
-
-                <button
-                    className='w-100 mt-4'
-                    type="submit"
-                >신청하기</button>
-            </div>
-        </form>
+            </form>
+        </div>
 
     )
 }
