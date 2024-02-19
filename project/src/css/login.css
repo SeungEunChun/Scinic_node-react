@@ -4,7 +4,7 @@
 }
 
 #loginbox .login-wrapper {
-    width: 100%;
+    width: 400px;
     height: 350px;
     padding: 40px;
     box-sizing: border-box;
@@ -14,11 +14,18 @@
     right: 0;
     margin: auto;
 
+
 }
 
 @media (max-width:990px) {
     .login-wrapper {
         padding-top: 0 !important;
+    }
+}
+
+@media (max-width:522px) {
+    .login-wrapper {
+        width: 100% !important;
     }
 }
 
