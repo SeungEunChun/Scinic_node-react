@@ -7,7 +7,7 @@ function Form() {
         try {
             if (data) {
 
-                const response = await axios.post(`/promotion/${myName}`, {
+                const response = await axios.post(`/form/${myName}`, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
@@ -18,10 +18,13 @@ function Form() {
                     throw new Error('Network response was not ok');
                 }
 
-                const responseData = await response.json(); // Assuming the response is JSON, adjust as necessary
-                return responseData;
+                // const responseData = await response.json(); // Assuming the response is JSON, adjust as necessary
+                // return responseData;
+                console.log(response)
+                return response;
+
             } else {
-                return axios.get(`/promotion/${myName}`);
+                return axios.get(`/store/${myName}`);
             }
 
         } catch (error) {
@@ -47,10 +50,10 @@ function Form() {
     };
 
     const buttonClick = async (e) => { //전송버튼 비동기 이벤트
+        e.preventDefault();
         console.log("전송요청함")
 
         try {
-            e.preventDefault();
             // productApi 호출
             console.log("리엑트 formData>>>>>", formData);
             ////////////////////////////////////

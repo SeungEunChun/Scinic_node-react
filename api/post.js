@@ -37,7 +37,7 @@ formtag.post('/:tablenm', (req, res) => {
         VALUES (${values})`, (error, result) => {
             if (error) throw console.log("쿼리문오류" + error);
             res.send({ msg: "i" })  //i가 오면 insert구문 성공
-            console.log(result);
+            console.log("노드post오류" + result);
             connect.release();
         })
     })
