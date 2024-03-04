@@ -8,6 +8,7 @@ function Product(props) {
     const [isActive, setIsActive] = useState(true);
     const tabrole = useRef(0);
     const intervalRef = useRef();
+    const [more, readMore] = useState(4)
 
     useEffect(() => {
         const updateInterval = () => {
@@ -40,11 +41,15 @@ function Product(props) {
             window.removeEventListener('resize', updateInterval);
         };
     }, [isActive, tabname]);
+    const filteredData = props.datasrc ? props.datasrc.filter(bestpro => bestpro.Category_no === tabrole.current).length : 0;
+    const handleMore = () => {
+        readMore((prevmore) => prevmore + 10)
+    }
 
-    // 나머지 컴포넌트 로직...
+
 
     return (
-        <section>
+        <section className='mb-5'>
             <div id='Product' className='row container mx-auto text-center mt-5'>
                 <div div className='mb-5 border-bottom' >
                     <h2>Product</h2>
@@ -53,7 +58,7 @@ function Product(props) {
 
                 <ul className='d-flex justify-content-between px-3 my-5'>
                     {
-                   tabname  &&     tabname.map((e, i) => {
+                        tabname && tabname.map((e, i) => {
                             return (
                                 <li key={i} onClick={() => { tabrole.current = i; setInter(tabrole.current) }} className={`${tabrole.current === i ? "on" : ""
                                     }`}>{e.Cate_title}</li>
@@ -63,9 +68,9 @@ function Product(props) {
                 </ul>
 
                 {
-                  props.datasrc &&  props.datasrc.filter(bestpro => bestpro.Category_no === tabrole.current).slice(0, 10).map((e, i) => {
+                    props.datasrc && props.datasrc.filter(bestpro => bestpro.Category_no === tabrole.current).slice(0, more).map((e, i) => {
                         return (
-                            <div className='col-lg-3 col-md-6 mb-5 pb-4 text-center'>
+                            <div className='col-lg-3 col-md-6 mb-3 pb-4 text-center'>
                                 <Link className='d-block'>
                                     <img src={e.img} alt={`상품${i}`} className='img-fluid' />
                                 </Link>
@@ -75,11 +80,21 @@ function Product(props) {
                                 <br />
                                 <p>{e.descpro}</p>
                                 <span>{e.price} 원</span>
+
                             </div>
+
                         )
+
                     })
                 }
             </div >
+            {
+                filteredData > more && (
+                    <div className="text-center mt-4">
+                        <button onClick={handleMore}>더보기</button>
+                    </div>
+                )
+            }
         </section>
 
     );

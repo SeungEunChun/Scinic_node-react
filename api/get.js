@@ -50,6 +50,22 @@ mysqlapi.get('/:tablenm/:Category_no', (req, res) => {
     })
 })
 
+mysqlapi.get('/:tablenm/search?id=', (req, res) => {
+    const tablenm = req.params.tablenm;
+    const idnum = req.params.id;
+    const wherenum = `where id=${idnum}`
+
+    myconnection.getConnection((err, connect) => {
+        if (err) throw console.log("DB접속정보" + err)
+        connect.query(`select * from ${tablenm} ${wherenum}`, (error, result) => {
+            if (error) throw console.log("검색 쿼리문 오류")
+            res.send(result);
+            console.log(result);
+            connect.release();
+        })
+    })
+})
+
 
 
 
