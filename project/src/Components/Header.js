@@ -1,26 +1,33 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import carticon from '../img/icon/icon_cart.svg'
 import searchicon from '../img/icon/icon_search.svg'
 import { Link } from 'react-router-dom'
+
 // import { Navbar, Nav, Container } from 'react-bootstrap'
 // import menuicon from './../img/icon/icon_menu.svg'
 import topicon from '../img/icon/icon_top.svg'
 import talkicon from '../img/icon/icon_talk.svg'
 import recenticon from '../img/icon/icon_recent.svg'
-import menuicon from '../img/icon/icon_menu.svg'
+// import menuicon from '../img/icon/icon_menu.svg'
 
 
 
 
 function Header(props) {
-    const Gnbmenu = useRef("");
-    const menucon = () => {
-        Gnbmenu.current.classList.toggle("d-none")
-    }
+
+    // const Gnbmenu = useRef("");
+
+    // const menucon = () => {
+    //     Gnbmenu.current.classList.toggle("d-none")
+
+    // }
+
+
 
     const scrolldown = () => {
         document.querySelector("#hd").classList = window.scrollY > 0 ? "fixed-top bg-white border-bottom down" : "fixed-top bg-white border-bottom";
+
         document.body.classList = window.scrollY > 0 ? "down" : "";
     }
 
@@ -31,8 +38,16 @@ function Header(props) {
         });
     };
 
+
+
     useEffect(() => {
         console.log(props)
+        const menuc = document.querySelector("#menuicon")
+        menuc.addEventListener("click", (e) => {
+            console.log(e)//이벤트 자체
+            e.target.classList.toggle("on")
+
+        })
 
 
         window.addEventListener("scroll", scrolldown)
@@ -45,6 +60,20 @@ function Header(props) {
 
 
 
+    const showsearch = () => {  //검색아이콘 눌렀을때 페이지 전체 딤처리
+
+        document.body.classList.add("dim");
+
+
+
+    }
+
+
+
+
+
+
+
 
 
     return (
@@ -53,10 +82,10 @@ function Header(props) {
                 <h1 id='Logo' className='text-center align-item-center mb-0 mt-lg-5 p-0'><Link to="/"></Link></h1>
 
 
-                <i id='menuicon' className='d-lg-none d-flex p-0' onClick={menucon}><img src={menuicon} alt="메뉴" /></i>
+                <i id='menuicon' className='d-lg-none d-flex p-0'></i>
 
 
-                <div id="Gnb" ref={Gnbmenu} className='text-center container-lg mt-lg-5 d-lg-block d-none'>
+                <div id="Gnb" className='text-center container-lg mt-lg-5 d-lg-block d-none'>
                     <ul className='d-lg-flex justify-content-center'>
 
                         <li className='px-4 storelist '><Link to="/store/all">스토어</Link>
@@ -88,13 +117,15 @@ function Header(props) {
                             <li><Link to="/login">Login</Link></li>
                             <li className='ms-lg-2'><a href="#none">My</a></li>
                             <li className='ms-lg-2'><a href="#none"><img src={carticon} alt="장바구니" /></a></li>
-                            <li className='ms-lg-2'><a href="#none"><img src={searchicon} alt="검색" /></a></li>
+                            <li className='ms-lg-2 searchicon' onClick={showsearch}><img src={searchicon} alt="검색" /></li>
                         </ul>
                     </div>
 
                 </div>
 
+
             </div>
+
             <div className='fixed-right bg-white d-none d-md-block' >
                 <div className='resentbt pb-2'>
                     <Link to="#none"><img src={recenticon} alt="최근본상품" /></Link>

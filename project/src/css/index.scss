@@ -351,13 +351,22 @@ p {
     width: 30px;
     height: 30px;
     cursor: pointer;
+    background-image: url(../img/icon/icon_menu.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 
+    &.on {
+        background-image: url(../img/icon/icon_recent.svg);
+    }
 
-    img {
-        width: 30px;
-        height: 30px;
+    &.on+#Gnb {
+        display: block !important;
     }
 }
+
+
+
 
 #Mainswiper .swipermobile {
     margin-top: 4rem;
@@ -644,4 +653,66 @@ p {
     @media (max-width:972px) {
         margin-top: 120px;
     }
+}
+
+.searchicon {
+    cursor: pointer;
+}
+
+.showsearch {
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    z-index: 5000;
+
+}
+
+.closesearch {
+    cursor: pointer;
+}
+
+body.dim {
+    overflow: hidden;
+
+    .showsearch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+body.dim:after {
+    content: "";
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    z-index: 4999;
+}
+
+.showsearch input {
+    border: none;
+    background-color: transparent;
+
+}
+
+.showsearch .closesearch {
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.activesearch {
+    cursor: pointer;
+}
+
+.searchForm {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #fff;
 }

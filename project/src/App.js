@@ -18,11 +18,13 @@ import Footer from "./Components/Footer";
 import Login from "./Link/Login";
 import Brandstory from "./Link/brandstory";
 import Store from './Link/Store';
+
 // data
 import Mainswipe from './data/Mainswiper.json';
 // import Products from './data/product.json'
 import review from './data/review.json'
 import award from "./data/award.json"
+
 
 
 
@@ -54,7 +56,10 @@ function App() {
 
   return (
     <>
-      <Header datasrc={totalpro && totalpro["Category"] && totalpro["Category"]}></Header>
+      <Header datasrc={totalpro && totalpro["Category"] && totalpro["Category"]}>
+
+      </Header>
+
       <Routes>
         <Route path="/" element={<section className='mainsec'>
           <Mainswiper datasrc={Mainswipe.mainbanner}></Mainswiper>
