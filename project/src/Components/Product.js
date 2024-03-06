@@ -90,8 +90,8 @@ function Product(props) {
             </div >
             {
                 filteredData > more && (
-                    <div className="text-center mt-4">
-                        <button onClick={handleMore}>더보기</button>
+                    <div className="text-center mt-4 closebtn">
+                        <button className='btn-4' onClick={handleMore}>더보기</button>
                     </div>
                 )
             }

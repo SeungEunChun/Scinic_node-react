@@ -357,7 +357,7 @@ p {
     background-size: 100%;
 
     &.on {
-        background-image: url(../img/icon/icon_recent.svg);
+        background-image: url(../img/icon/icon_close.svg);
     }
 
     &.on+#Gnb {
@@ -470,6 +470,11 @@ p {
             font-size: 0.9rem;
             margin-top: 10px;
             font-weight: 300 !important;
+
+            a:hover {
+                transition: .5s;
+                color: $maincolor !important;
+            }
         }
     }
 }
@@ -480,6 +485,7 @@ p {
 
     padding-top: 30px;
     width: 400px;
+
 
 }
 
@@ -670,8 +676,17 @@ p {
 
 }
 
-.closesearch {
+.closesearch,
+.closesearch img {
     cursor: pointer;
+
+    width: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(-200%) !important;
+
+
 }
 
 body.dim {
@@ -681,7 +696,23 @@ body.dim {
         display: flex;
         justify-content: center;
         align-items: center;
+
+        .field {
+            position: relative;
+            max-width: 680px;
+            width: calc(100vw - 30px); //양쪽 15px씩
+            min-width: 300px;
+
+            legend {
+                display: none;
+            }
+        }
+
+
+
     }
+
+
 }
 
 body.dim:after {
@@ -713,6 +744,24 @@ body.dim:after {
 
 .searchForm {
     display: flex;
+    justify-content: space-between;
+    line-height: 2.5;
     align-items: center;
     border-bottom: 2px solid #fff;
+
+    input {
+        width: calc(100vw - 25px);
+
+        &:focus-visible {
+            outline: none !important;
+        }
+    }
+
+
+}
+
+.closebtn .btn-4 {
+    width: 250px;
+    border-radius: 30px;
+    color: white;
 }
