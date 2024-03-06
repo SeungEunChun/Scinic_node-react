@@ -117,7 +117,7 @@ function Header(props) {
                             <li><Link to="/login">Login</Link></li>
                             <li className='ms-lg-2'><a href="#none">My</a></li>
                             <li className='ms-lg-2'><a href="#none"><img src={carticon} alt="장바구니" /></a></li>
-                            <li className='ms-lg-2 searchicon' onClick={showsearch}><img src={searchicon} alt="검색" /></li>
+                            <li className='ms-lg-2 searchicon' onClick={showsearch}><a href="#none" ><img src={searchicon} alt="검색" /></a></li>
                         </ul>
                     </div>
 

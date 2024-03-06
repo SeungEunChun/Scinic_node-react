@@ -9,7 +9,7 @@ function Search() {
             <div className='field'>
                 <fieldset>
                     <legend>검색</legend>
-                    <div className="searchForm" title="검색어 입력">
+                    <div className="searchForm " title="검색어 입력">
                         <input type="text" placeholder="검색어 입력
         "/>
                         <div className="activesearch">

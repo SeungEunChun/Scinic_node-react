@@ -700,8 +700,8 @@ body.dim {
         .field {
             position: relative;
             max-width: 680px;
-            width: calc(100vw - 30px); //양쪽 15px씩
-            min-width: 260px;
+            width: calc(100vw - 50px); //양쪽 25px씩
+
 
             legend {
                 display: none;
@@ -750,7 +750,7 @@ body.dim:after {
     border-bottom: 2px solid #fff;
 
     input {
-        width: calc(100vw - 25px);
+        width: calc(100% - 25px);
 
         &:focus-visible {
             outline: none !important;
